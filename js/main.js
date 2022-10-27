@@ -82,9 +82,9 @@ posts.forEach(post => {
                     <div class="post-meta__icon">
                         <img class="profile-pic" src="${post.author.image}" alt="Phil Mangione">
                     </div>
-                    <div class="${post.created.dataChange}">
+                    <div class="${reverseData(post.created)}">
                         <div class="post-meta__author">${post.author.name}</div>
-                        <div class="post-meta__time">${post.created}</div>
+                        <div class="post-meta__time">${reverseData(post.created)}</div>
                     </div>
                 </div>
             </div>
@@ -112,11 +112,6 @@ posts.forEach(post => {
     console.log(post);
 })
 
-dataChange ();
-
-function dataChange(){
-    posts.forEach(post => {
-        post.created = post.created.split("-").join("-");
-    })
+function reverseData(dataDaFormattare){
+    return dataDaFormattare.split("-").reverse().join("-");
 }
-console.log(dataChange);
